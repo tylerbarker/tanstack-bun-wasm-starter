@@ -20,7 +20,7 @@ wasm-bindgen = "0.2.99"
 # all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
 # code size when deploying.
 console_error_panic_hook = { version = "0.1.7", optional = true }
-web-sys = { version = "0.3.70", features = ["AudioBuffer", "AudioContext"] }
+web-sys = { version = "0.3.70" }
 js-sys = "0.3.70"
 
 [dev-dependencies]
