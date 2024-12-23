@@ -1,0 +1,17 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 100,
+    "enabled": true
+  },
+  "files": {
+    "ignore": ["app/routeTree.gen.ts"]
+  },
+  "linter": {
+    "enabled": true
+  },
+  "organizeImports": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,29 @@
+# flyctl launch added from .gitignore
+# Local
+**/.DS_Store
+**/*.local
+**/*.log*
+
+# Dist
+**/node_modules
+**/dist
+**/.vinxi
+**/.output
+**/.vercel
+**/.netlify
+**/.wrangler
+
+# IDE
+**/.zed
+**/.vscode/*
+!**/.vscode/extensions.json
+**/.idea
+
+# flyctl launch added from acrate/.gitignore
+acrate/target
+acrate/**/**/*.rs.bk
+acrate/**/Cargo.lock
+acrate/**/bin
+acrate/**/pkg
+acrate/**/wasm-pack.log
+fly.toml

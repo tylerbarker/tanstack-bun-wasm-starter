@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "webworker", "scripthost"],
+    "strictNullChecks": true,
+    "types": ["bun-types"],
+    "baseUrl": ".",
+    "paths": {
+      "@wasm-lib": ["./app/pkg"],
+      "@/*": ["./app/*"],
+      "@test/*": ["./test/*"]
+    }
+  }
+}

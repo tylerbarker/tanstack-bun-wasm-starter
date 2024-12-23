@@ -1,0 +1,50 @@
+name: bun-workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  bun_build:
+    name: Build + test with Bun v${{matrix.bun_version}}, wasm-bindgen v${{matrix.wasm_bindgen_version}}
+    strategy:
+      matrix:
+        bun_version: ["1.1.40"]
+        wasm_bindgen_version: ["0.2.99"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{matrix.bun_version}}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Install wasm-bindgen-cli + wasm-pack
+        run: |
+          cargo install wasm-bindgen-cli --version ${{matrix.wasm_bindgen_version}}
+          curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      - name: Cargo + wasm-pack build
+        working-directory: ./acrate
+        run: |
+          cargo build --target wasm32-unknown-unknown
+          wasm-pack build --target web
+
+      - name: Cargo + wasm-pack tests
+        working-directory: ./acrate
+        run: |
+          cargo test
+          wasm-pack test --headless --chrome
+
+      - run: bun install
+      - run: bun run build
+      - run: bun test
