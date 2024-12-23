@@ -19,7 +19,7 @@ function Home() {
       className="transition-colors rounded-md bg-emerald-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
       onClick={() => setCount(wasm.sum(count, 2))}
     >
-      Add 1 to {count}?
+      Add 2 to {count}?
     </button>
   );
 }
