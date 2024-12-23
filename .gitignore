@@ -3,6 +3,10 @@
 *.local
 *.log*
 
+# Rust
+Cargo.lock
+target/
+
 # Dist
 node_modules
 dist/
