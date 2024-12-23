@@ -25,14 +25,15 @@ To use this template as intended, you'll need all the following installed:
 
 All of the above assumes macOS. Where I've not included links to installation, please refer to a search engine for the relevant instructions for your machine.
 
-## New Template Steps
+## After You 'Use this template'
 
 1. Rename root directory, replace all uses of "tanstack-bun-wasm-starter" name.
 2. Rename WASM crate directory - replace all uses of "acrate" name.
-3. Replace "yourdomain.com" with your actual domain in robots.txt and sitemap.xml (BYO DNS config, see [fly certs](https://fly.io/docs/flyctl/certs).
-4. Run `bun run setup`
-5. If all's well run `bun run dev`
-6. Happy coding ✌️
+3. Replace my name with your own in maintainers, author, in package.json and Cargo.toml.
+4. Replace "yourdomain.com" with your actual domain in robots.txt and sitemap.xml (BYO DNS config, see [fly certs](https://fly.io/docs/flyctl/certs).
+5. Run `bun run setup`
+6. If all's well run `bun run dev`
+7. Happy coding ✌️
 
 ## Deployment
 
