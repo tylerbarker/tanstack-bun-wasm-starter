@@ -5,19 +5,33 @@ import { Meta, Scripts } from "@tanstack/start";
 import * as React from "react";
 import type { ReactNode } from "react";
 
-// Render nothing in prod, lazy load in dev
-const MaybeTanStackRouterDevtools =
-  process.env.NODE_ENV === "production"
-    ? () => null
-    : React.lazy(() =>
-        import("@tanstack/router-devtools").then((res) => ({
-          default: res.TanStackRouterDevtools,
-        })),
-      );
+const inProduction = process.env.NODE_ENV === "production";
+
+const MaybeTanStackRouterDevtools = inProduction
+  ? () => null
+  : React.lazy(() =>
+      import("@tanstack/router-devtools").then((res) => ({
+        default: res.TanStackRouterDevtools,
+      })),
+    );
+
+const MaybeReactQueryDevtools = inProduction
+  ? () => null
+  : React.lazy(() =>
+      import("@tanstack/react-query-devtools").then((res) => ({
+        default: res.ReactQueryDevtools,
+      })),
+    );
 
 const TanStackRouterDevtools = () => (
   <React.Suspense>
-    <MaybeTanStackRouterDevtools position="bottom-right" />
+    <MaybeTanStackRouterDevtools />
+  </React.Suspense>
+);
+
+const ReactQueryDevtools = () => (
+  <React.Suspense>
+    <MaybeReactQueryDevtools position="right" />
   </React.Suspense>
 );
 
@@ -52,6 +66,7 @@ function RootComponent() {
     <RootDocument>
       <QueryClientProvider client={queryClient}>
         <Outlet />
+        <ReactQueryDevtools />
         <TanStackRouterDevtools />
       </QueryClientProvider>
     </RootDocument>
