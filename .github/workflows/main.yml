@@ -14,8 +14,8 @@ jobs:
     name: Build + test with Bun v${{matrix.bun_version}}, wasm-bindgen v${{matrix.wasm_bindgen_version}}
     strategy:
       matrix:
-        bun_version: ["1.1.42"]
-        wasm_bindgen_version: ["0.2.99"]
+        bun_version: ["1.2.2"]
+        wasm_bindgen_version: ["0.2.100"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

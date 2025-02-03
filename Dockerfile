@@ -1,4 +1,4 @@
-ARG BUN_VERSION=1.1.42
+ARG BUN_VERSION=1.2.2
 FROM oven/bun:${BUN_VERSION} AS builder
 
 # Install OS  deps
